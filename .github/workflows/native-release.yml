@@ -1,0 +1,11 @@
+name: native release qualification
+on:
+  workflow_dispatch:
+
+jobs:
+  native-gcc-and-clang:
+    runs-on: [self-hosted, linux, x64, avx512ifma]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Native release gate
+        run: scripts/release_check.sh

@@ -1,0 +1,4 @@
+bits=264 inputs=50000 disagreements=0 passing_TD=8519
+bits=512 inputs=50000 disagreements=0 passing_TD=7379
+bits=1024 inputs=50000 disagreements=0 passing_TD=5903
+bits=2048 inputs=50000 disagreements=0 passing_TD=5996

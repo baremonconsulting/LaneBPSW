@@ -1,0 +1,3 @@
+one-shot SHA256(): 466.6 ns   SHA256_Init/Update/Final: 70.8 ns   ratio 6.59
+one-shot SHA256(): 451.2 ns   SHA256_Init/Update/Final: 69.6 ns   ratio 6.48
+one-shot SHA256(): 428.9 ns   SHA256_Init/Update/Final: 69.1 ns   ratio 6.21

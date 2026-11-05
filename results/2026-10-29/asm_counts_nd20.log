@@ -1,0 +1,4 @@
+g++ f_amm20: total 3340 ifma 1620 vmovdq 1608 vmovdq-mem 864
+g++ f_ams20: total 3004 ifma 1240 vmovdq 1576 vmovdq-mem 1174
+clang++ f_amm20: total 2593 ifma 1620 vmovdq 809 vmovdq-mem 751
+clang++ f_ams20: total 2073 ifma 1240 vmovdq 594 vmovdq-mem 444

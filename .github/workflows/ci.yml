@@ -1,0 +1,55 @@
+# Build with clang and g++ for an AVX-512 IFMA target, then run the tests: natively if the runner's CPU has AVX-512
+# IFMA, with the IFMA instructions emulated if it has AVX-512F only. On a baseline runner the shared-library load
+# and CPU-dispatch contract are tested, while computational tests are explicitly reported as not run.
+name: build and test
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { cxx: clang++, cc: clang }
+          - { cxx: g++, cc: gcc }
+    env:
+      CXX: ${{ matrix.cxx }}
+      CC: ${{ matrix.cc }}
+      ARCH: "-march=x86-64-v4 -mavx512ifma"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependencies
+        run: sudo apt-get update && sudo apt-get install -y clang make libgmp-dev libssl-dev
+      - name: Versions
+        run: |
+          $CXX --version | head -1
+          dpkg -s libgmp-dev | grep '^Version'
+          grep -m1 -o 'model name.*' /proc/cpuinfo
+      - name: Build
+        run: make -j"$(nproc)"
+      - name: Baseline shared-library load and CPU dispatch
+        run: |
+          python3 - <<'PY'
+          import ctypes, pathlib
+          lib = ctypes.CDLL(str(pathlib.Path("build/liblanebpsw.so").resolve()))
+          print("lanebpsw_cpu_supported=", lib.lanebpsw_cpu_supported())
+          PY
+      - name: Test
+        run: |
+          if grep -qw avx512ifma /proc/cpuinfo; then
+            make test
+          elif grep -qw avx512f /proc/cpuinfo; then
+            echo "No AVX-512 IFMA on this runner: tests with the two IFMA instructions emulated."
+            make test BUILD=build-emu EMULATE_IFMA=1 ARCH=-march=x86-64-v4
+          else
+            echo "COMPUTATIONAL_TESTS_NOT_RUN: this runner has no AVX-512F." | tee computational-test-status.txt
+            echo "### Computational tests not run ($CXX)" >> "$GITHUB_STEP_SUMMARY"
+            echo "The runner lacks AVX-512F. Build and baseline load/dispatch passed; native computational tests require scripts/release_check.sh on an AVX-512 IFMA host." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload runtime-test status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: runtime-status-${{ matrix.cc }}
+          path: computational-test-status.txt
+          if-no-files-found: ignore

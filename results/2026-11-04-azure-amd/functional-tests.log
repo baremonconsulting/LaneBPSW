@@ -1,0 +1,65 @@
+mkdir -p build-azure-native
+clang++ -Iinclude  -DUSE_AMS  -O3 -march=native -std=c++17 -o build-azure-native/test_kernels tests/test_kernels.cpp -lgmp
+clang++ -Iinclude  -DUSE_AMS  -O3 -march=native -std=c++17 -o build-azure-native/test_bpsw tests/test_bpsw.cpp -lgmp
+clang++ -Iinclude  -DUSE_AMS  -O3 -march=native -std=c++17 -o build-azure-native/test_lucv tests/test_lucv.cpp -lgmp
+clang++ -Iinclude  -DUSE_AMS  -O3 -march=native -std=c++17 -o build-azure-native/test_paths tests/test_paths.cpp -lgmp
+clang++ -Iinclude  -DUSE_AMS  -O3 -march=native -std=c++17 -fPIC -shared -o build-azure-native/liblanebpsw.so src/lanebpsw.cpp -lgmp -lcrypto
+clang -Iinclude  -DUSE_AMS  -O3 -march=native -o build-azure-native/test_api tests/test_api.c -Lbuild-azure-native -llanebpsw -Wl,-rpath,'$ORIGIN' -lgmp
+build-azure-native/test_kernels
+ND= 5:   65 to  256 bits
+ND= 6:  257 to  308 bits
+ND=10:  309 to  516 bits
+ND=15:  517 to  776 bits
+ND=20:  777 to 1036 bits
+ND=30: 1037 to 1556 bits
+ND=40: 1557 to 2076 bits
+ND=60: 2077 to 3116 bits
+ND=79: 3117 to 4104 bits
+ALL: checks 187197, MISMATCHES 0
+build-azure-native/test_api
+ALL: checks 73959, MISMATCHES 0
+build-azure-native/test_lucv
+n=913              prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=150267335403     prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=430558874533     prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=14760229232131   prime=0 P=1 Q=2  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=936916995253453  prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=1000003          prime=1 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=1
+n=999983           prime=1 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=1
+n=1000001          prime=0 P=1 Q=3  V-check ref=0 lanes=0  sprp2(lanes)=0
+ALL: checks 8, MISMATCHES 0
+build-azure-native/test_paths
+(1) fallback: 96 inputs with a Jacobi symbol 0, squares, even, < 2^64 and > 4102 bits; 526 fallbacks taken
+(2a) next prime, block lengths 1..17: 322 queries, 18704 blocks in all
+(2b) next prime below powers of two: 160 queries, 124 batches of mixed bit length
+(3) next prime for 2..210 bits: 836 queries
+(4) chiavdf variant above 2049 bits and scalar version above 4102 bits: 76 inputs
+ALL: checks 1926, MISMATCHES 0
+build-azure-native/test_bpsw --checks-only
+k=  72 done: checks 504, mismatches 0, fallbacks 0
+k= 130 done: checks 1009, mismatches 0, fallbacks 0
+k= 200 done: checks 1515, mismatches 0, fallbacks 0
+k= 256 done: checks 2019, mismatches 0, fallbacks 0
+k= 300 done: checks 2516, mismatches 0, fallbacks 0
+k= 384 done: checks 3014, mismatches 0, fallbacks 0
+k= 512 done: checks 3520, mismatches 0, fallbacks 0
+k= 768 done: checks 4020, mismatches 0, fallbacks 0
+k=1024 done: checks 4531, mismatches 0, fallbacks 0
+k=1536 done: checks 4631, mismatches 0, fallbacks 0
+k=2048 done: checks 4731, mismatches 0, fallbacks 0
+k=3072 done: checks 4751, mismatches 0, fallbacks 0
+k=4096 done: checks 4770, mismatches 0, fallbacks 0
+tail primes done: checks 5010, mismatches 0, fallbacks 0
+  Fermat F_m k=129 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=257 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=513 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=1025 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=2049 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+Mersenne numbers: 177 composite, 3 prime (M521, M607, M1279 expected prime)
+  Carmichael k=202 D=11 Q=3 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=202 D=7 Q=2 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=202 D=11 Q=3 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=13 Q=-3 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=19 Q=5 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=7 Q=2 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+ALL: checks 5201, MISMATCHES 0, fallbacks 0

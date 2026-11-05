@@ -1,0 +1,38 @@
+k=  72 done: checks 504, mismatches 0, fallbacks 0
+k= 130 done: checks 1009, mismatches 0, fallbacks 0
+k= 200 done: checks 1515, mismatches 0, fallbacks 0
+k= 256 done: checks 2019, mismatches 0, fallbacks 0
+k= 300 done: checks 2516, mismatches 0, fallbacks 0
+k= 384 done: checks 3014, mismatches 0, fallbacks 0
+k= 512 done: checks 3520, mismatches 0, fallbacks 0
+k= 768 done: checks 4020, mismatches 0, fallbacks 0
+k=1024 done: checks 4531, mismatches 0, fallbacks 0
+k=1536 done: checks 4631, mismatches 0, fallbacks 0
+k=2048 done: checks 4731, mismatches 0, fallbacks 0
+k=3072 done: checks 4751, mismatches 0, fallbacks 0
+k=4096 done: checks 4770, mismatches 0, fallbacks 0
+tail primes done: checks 5010, mismatches 0, fallbacks 0
+  Fermat F_m k=129 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=257 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=513 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=1025 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Fermat F_m k=2049 D=5 Q=-1 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+Mersenne numbers: 177 composite, 3 prime (M521, M607, M1279 expected prime)
+  Carmichael k=202 D=11 Q=3 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=202 D=7 Q=2 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=202 D=11 Q=3 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=13 Q=-3 base2=0 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=19 Q=5 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+  Carmichael k=308 D=7 Q=2 base2=1 lucas=0 mr=0 -> 0 (GMP 0)
+ALL: checks 5201, MISMATCHES 0, fallbacks 0
+
+Timing on primes (the final check of a next-prime query):
+k= 256: lanes median 19.1 us (mean 19.7) | GMP mpz_millerrabin(n,25) median 71.0 us (mean 70.0) | ratio(median) 3.72x
+k= 512: lanes median 74.7 us (mean 79.2) | GMP mpz_millerrabin(n,25) median 325.2 us (mean 336.8) | ratio(median) 4.35x
+k= 768: lanes median 217.2 us (mean 226.8) | GMP mpz_millerrabin(n,25) median 871.3 us (mean 963.8) | ratio(median) 4.01x
+k=1024: lanes median 469.6 us (mean 489.2) | GMP mpz_millerrabin(n,25) median 1841.6 us (mean 1927.6) | ratio(median) 3.92x
+k=1536: lanes median 1637.2 us (mean 1757.7) | GMP mpz_millerrabin(n,25) median 5920.4 us (mean 6326.3) | ratio(median) 3.62x
+k=2048: lanes median 3525.4 us (mean 3712.1) | GMP mpz_millerrabin(n,25) median 12998.0 us (mean 13395.5) | ratio(median) 3.69x
+k=3072: lanes median 11341.2 us (mean 11873.8) | GMP mpz_millerrabin(n,25) median 38652.0 us (mean 39354.4) | ratio(median) 3.41x
+k=4096: lanes median 25531.6 us (mean 27084.5) | GMP mpz_millerrabin(n,25) median 80952.5 us (mean 84104.9) | ratio(median) 3.17x
+EXIT 0

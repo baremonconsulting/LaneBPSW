@@ -1,0 +1,8 @@
+LaneBPSW
+Copyright 2026 Jan Suchánek, Baremon s.r.o.
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It links against, but does not include, the GNU MP library (LGPL-3.0-or-later or GPL-2.0-or-later) and OpenSSL
+(Apache-2.0). The algorithms reproduce the behaviour of GMP 6.3.0 (mpz_millerrabin, mpz_nextprime) and of chiavdf
+(is_prime_bpsw, HashPrime; Apache-2.0); no source code of either project is included.

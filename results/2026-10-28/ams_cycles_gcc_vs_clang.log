@@ -1,0 +1,14 @@
+# cyc_ams.cpp: TSC ticks (2.1 GHz nominal) per 8-lane Montgomery multiplication (amm/ammx, a*a) vs dedicated squaring (ams), min of 15 trials x 2000 chained ops, CPU 1, 2026-10-28 (verbatim output)
+## g++ 13.3 -O3 -march=native
+ND= 5: TSC ticks per 8-lane op: amm 76 (IFMA 105 -> 1.38 IFMA/tick)  ams 74 (IFMA 90 -> 1.21/tick)  ratio 1.028
+ND=10: TSC ticks per 8-lane op: amm 204 (IFMA 410 -> 2.01 IFMA/tick)  ams 189 (IFMA 330 -> 1.75/tick)  ratio 1.082
+ND=20: TSC ticks per 8-lane op: amm 1076 (IFMA 1620 -> 1.51 IFMA/tick)  ams 1002 (IFMA 1260 -> 1.26/tick)  ratio 1.074
+ND=40: TSC ticks per 8-lane op: amm 4165 (IFMA 6440 -> 1.55 IFMA/tick)  ams 4004 (IFMA 4920 -> 1.23/tick)  ratio 1.040
+ND=79: TSC ticks per 8-lane op: amm 15935 (IFMA 25043 -> 1.57 IFMA/tick)  ams 14120 (IFMA 18960 -> 1.34/tick)  ratio 1.129
+## clang++ 18 -O3 -march=native
+ND= 5: TSC ticks per 8-lane op: amm 77 (IFMA 105 -> 1.36 IFMA/tick)  ams 73 (IFMA 90 -> 1.24/tick)  ratio 1.063
+ND=10: TSC ticks per 8-lane op: amm 195 (IFMA 410 -> 2.10 IFMA/tick)  ams 180 (IFMA 330 -> 1.84/tick)  ratio 1.085
+ND=20: TSC ticks per 8-lane op: amm 1117 (IFMA 1620 -> 1.45 IFMA/tick)  ams 902 (IFMA 1260 -> 1.40/tick)  ratio 1.239
+ND=40: TSC ticks per 8-lane op: amm 4122 (IFMA 6440 -> 1.56 IFMA/tick)  ams 3644 (IFMA 4920 -> 1.35/tick)  ratio 1.131
+ND=79: TSC ticks per 8-lane op: amm 15400 (IFMA 25043 -> 1.63 IFMA/tick)  ams 13291 (IFMA 18960 -> 1.43/tick)  ratio 1.159
+# (the IFMA counts printed for ams use 3ND^2+3ND; TSC ticks are reference cycles, the actual core clock is unknown)

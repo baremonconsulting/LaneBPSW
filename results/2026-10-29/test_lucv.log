@@ -1,0 +1,8 @@
+n=913              prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=150267335403     prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=430558874533     prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=14760229232131   prime=0 P=1 Q=2  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=936916995253453  prime=0 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=0
+n=1000003          prime=1 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=1
+n=999983           prime=1 P=5 Q=5  V-check ref=1 lanes=1  sprp2(lanes)=1
+n=1000001          prime=0 P=1 Q=3  V-check ref=0 lanes=0  sprp2(lanes)=0

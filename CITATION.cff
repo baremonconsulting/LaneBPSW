@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper given under preferred-citation."
+title: "LaneBPSW"
+abstract: >-
+  A single-threaded research implementation of lane-packed Baillie–PSW testing with AVX-512 IFMA. It is designed
+  for output compatibility with mpz_millerrabin(n, 25) and mpz_nextprime of GMP 6.3.0 and with the documented
+  chiavdf 1.2.x predicates in their stated domains. The supplied tests found no mismatches; equivalence is not
+  formally proved, and performance results are specific to the documented systems and workloads.
+authors:
+  - family-names: "Suchánek"
+    given-names: "Jan"
+    affiliation: "Baremon s.r.o."
+repository-code: "https://github.com/baremonconsulting/LaneBPSW"
+license: Apache-2.0
+keywords:
+  - Baillie–PSW test
+  - prime generation
+  - AVX-512 IFMA
+  - Montgomery multiplication
+  - GMP
+  - chiavdf
+preferred-citation:
+  type: article
+  status: preprint
+  title: "LaneBPSW: Lane-packed Baillie–PSW testing for bit-exact prime generation with AVX-512 IFMA"
+  authors:
+    - family-names: "Suchánek"
+      given-names: "Jan"
+      affiliation: "Baremon s.r.o."
+  year: 2026
+  url: "https://github.com/baremonconsulting/LaneBPSW"

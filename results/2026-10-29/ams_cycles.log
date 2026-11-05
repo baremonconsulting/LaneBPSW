@@ -1,0 +1,12 @@
+## g++ 13.3
+ND= 5: TSC ticks per 8-lane op: amm 80 (IFMA 105 -> 1.31 IFMA/tick)  ams 77 (IFMA 85 -> 1.10/tick)  ratio 1.033
+ND=10: TSC ticks per 8-lane op: amm 204 (IFMA 410 -> 2.01 IFMA/tick)  ams 190 (IFMA 320 -> 1.68/tick)  ratio 1.073
+ND=20: TSC ticks per 8-lane op: amm 720 (IFMA 1620 -> 2.25 IFMA/tick)  ams 756 (IFMA 1240 -> 1.64/tick)  ratio 0.952
+ND=40: TSC ticks per 8-lane op: amm 3134 (IFMA 6440 -> 2.05 IFMA/tick)  ams 3037 (IFMA 4880 -> 1.61/tick)  ratio 1.032
+ND=79: TSC ticks per 8-lane op: amm 12358 (IFMA 25043 -> 2.03 IFMA/tick)  ams 10793 (IFMA 18881 -> 1.75/tick)  ratio 1.145
+## clang 18.1.3
+ND= 5: TSC ticks per 8-lane op: amm 80 (IFMA 105 -> 1.32 IFMA/tick)  ams 76 (IFMA 85 -> 1.11/tick)  ratio 1.042
+ND=10: TSC ticks per 8-lane op: amm 203 (IFMA 410 -> 2.02 IFMA/tick)  ams 185 (IFMA 320 -> 1.73/tick)  ratio 1.092
+ND=20: TSC ticks per 8-lane op: amm 697 (IFMA 1620 -> 2.33 IFMA/tick)  ams 585 (IFMA 1240 -> 2.12/tick)  ratio 1.190
+ND=40: TSC ticks per 8-lane op: amm 3093 (IFMA 6440 -> 2.08 IFMA/tick)  ams 2820 (IFMA 4880 -> 1.73/tick)  ratio 1.097
+ND=79: TSC ticks per 8-lane op: amm 12374 (IFMA 25043 -> 2.02 IFMA/tick)  ams 11023 (IFMA 18881 -> 1.71/tick)  ratio 1.122

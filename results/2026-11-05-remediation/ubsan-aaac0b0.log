@@ -1,0 +1,8 @@
+mkdir -p build-ubsan
+g++ -Iinclude  -DUSE_AMS  -O1 -fsanitize=undefined -fno-sanitize-recover=undefined -march=native -std=c++17 -o build-ubsan/test_hashprime tests/test_hashprime.cpp -lgmp -lcrypto -fsanitize=undefined 
+gcc -Iinclude  -DUSE_AMS  -O1 -fsanitize=undefined -fno-sanitize-recover=undefined -fPIC -c -o build-ubsan/cpu.o src/cpu.c
+g++ -Iinclude  -DUSE_AMS  -O1 -fsanitize=undefined -fno-sanitize-recover=undefined -march=native -std=c++17 -fPIC -c -o build-ubsan/lanebpsw.o src/lanebpsw.cpp
+g++ -shared -o build-ubsan/liblanebpsw.so build-ubsan/cpu.o build-ubsan/lanebpsw.o -lgmp -lcrypto -fsanitize=undefined 
+gcc -Iinclude  -DUSE_AMS  -O1 -fsanitize=undefined -fno-sanitize-recover=undefined -march=native -o build-ubsan/test_api tests/test_api.c -Lbuild-ubsan -llanebpsw -Wl,-rpath,'$ORIGIN' -lgmp 
+ALL: checks 265, MISMATCHES 0
+ALL: checks 73966, MISMATCHES 0

@@ -1,0 +1,5 @@
+# A = system libgmp.so.10.5.0 (Ubuntu 2:6.3.0+dfsg-2ubuntu6.1), B = chiavdf 1.2.0 wheel libgmp-4e3e12a7.so.10.5.0 (fat build); ratios are time(A)/time(B)
+k= 256  nextprime ms: A 0.211 B 0.308 (A/B 0.68) | millerrabin(p,25) us: A 74.9 B 109.9 (0.68) | powm us: A 8.7 B 18.3 (0.48)
+k=1024  nextprime ms: A 11.686 B 16.801 (A/B 0.70) | millerrabin(p,25) us: A 1794.5 B 2275.4 (0.79) | powm us: A 315.3 B 445.3 (0.71)
+k=2048  nextprime ms: A 127.879 B 183.227 (A/B 0.70) | millerrabin(p,25) us: A 13480.3 B 16071.7 (0.84) | powm us: A 2463.3 B 3048.9 (0.81)
+k=4096  nextprime ms: A 1974.611 B 2407.816 (A/B 0.82) | millerrabin(p,25) us: A 82647.6 B 97133.4 (0.85) | powm us: A 17846.1 B 22403.9 (0.80)

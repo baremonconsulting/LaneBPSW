@@ -1,0 +1,8 @@
+bits=256 B=0 L=0 Q=2000  total 0.092 ms/q | res 0.003 mark 0.007 test 0.019 final 0.061 other 0.003 (ms/q) | lanes/q 10.7 finals/q 1.00
+bits=256 B=0 L=0 Q=2000  total 0.048 ms/q | res 0.003 mark 0.007 test 0.019 final 0.017 other 0.003 (ms/q) | lanes/q 10.7 finals/q 1.00
+bits=512 B=0 L=0 Q=1000  total 0.468 ms/q | res 0.014 mark 0.017 test 0.157 final 0.277 other 0.004 (ms/q) | lanes/q 18.4 finals/q 1.00
+bits=512 B=0 L=0 Q=1000  total 0.267 ms/q | res 0.014 mark 0.016 test 0.157 final 0.077 other 0.004 (ms/q) | lanes/q 18.4 finals/q 1.00
+bits=1024 B=0 L=0 Q=400  total 3.588 ms/q | res 0.113 mark 0.046 test 1.885 final 1.537 other 0.008 (ms/q) | lanes/q 33.1 finals/q 1.00
+bits=1024 B=0 L=0 Q=400  total 2.570 ms/q | res 0.112 mark 0.045 test 1.869 final 0.537 other 0.007 (ms/q) | lanes/q 33.1 finals/q 1.00
+bits=2048 B=0 L=0 Q=100  total 36.888 ms/q | res 0.971 mark 0.150 test 24.931 final 10.813 other 0.023 (ms/q) | lanes/q 57.3 finals/q 1.00
+bits=2048 B=0 L=0 Q=100  total 30.117 ms/q | res 0.971 mark 0.146 test 24.929 final 4.049 other 0.022 (ms/q) | lanes/q 57.3 finals/q 1.00

@@ -1,0 +1,12 @@
+vectors 12240 in /home/azureuser/lanebpsw-aaac0b0.bMil6k/independent/vectors.txt
+exact REDC: batches=1530 lane-checks=49680 mismatches=0
+matrix Lucas/power checks=1478 mismatches=0 GMP-fallback-inputs=62 distinct-GMP-D=53
+D: 5 7 11 13 15 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199 211 223 227 229 233 239 241 251
+gmp_stronglucas.c 0bf1ce019291d6d498ca8f2af38a93847b7e53a4 verified
+gmp_millerrabin.c 98c4d6af39ce6f31c30d6286632847acbbb214e8 verified
+primetest.h b82c7e85f4b8fd35570dddf2bdc1221e8366fed8 verified
+pprods.h d821bc85a6b8bf63d574424aa2eb82f70932ef99 verified
+checked_cast.h 57ddaac344a87b7f8261012be05ad1d241fca51f verified
+primetest_1_2_1.h b82c7e85f4b8fd35570dddf2bdc1221e8366fed8 verified
+pprods exact upstream table match=1 count=379
+upstream chiavdf1.2.2 differential checks=15105 mismatches=0
